@@ -1,0 +1,42 @@
+# docker-roundup
+# roundup issue tracker application with mariadb running as docker container
+#
+# docker-compose.yml
+#
+
+version: '3'
+services:
+  mariadb:
+    image: lscr.io/linuxserver/mariadb
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vienna
+      - MYSQL_ROOT_PASSWORD=myPassword
+      - MYSQL_DATABASE=roundup
+      - MYSQL_USER=roundup_user
+      - MYSQL_PASSWORD=roundup_pass
+#    ports:
+#      - 3306:3306
+    volumes:
+      - ./dbData:/config
+
+  roundup-app:
+    container_name: roundup-app
+    build: .
+    command: "issues=tracker"
+    restart: unless-stopped
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/Vienna
+    ports:
+      - 9017:8080
+    links:
+      - mariadb
+    depends_on:
+      - mariadb
+    volumes:
+      - ./myTracker:/usr/src/app/tracker
