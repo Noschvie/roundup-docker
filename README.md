@@ -10,8 +10,13 @@ https://pypi.org/project/roundup/
 Needed files and directories:
 
 setup.py
+
 doc
+
 frontends
+
 locale
+
 roundup
+
 share
