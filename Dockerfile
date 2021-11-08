@@ -14,7 +14,7 @@
 ARG appdir=/usr/src/app
 
 # support roundup install from 'local' directory or from 'pypi'
-ARG source=local
+ARG source=pypi
 
 FROM python:3-alpine as build
 
