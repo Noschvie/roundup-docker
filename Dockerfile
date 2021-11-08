@@ -78,6 +78,7 @@ WORKDIR $appdir
 RUN apk add \
      gpgme \
      mariadb-connector-c \
+     mariadb-client \
      libpq \
      libstdc++
 
