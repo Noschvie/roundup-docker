@@ -39,9 +39,7 @@ RUN apk add \
 # add requirements for pip here, e.g. Whoosh, gpg, zstd or other
 #   modules not installed in the base library.
 # ignore warnings from pip to use virtualenv
-# COPY scripts/requirements.txt .
-# nosch
-COPY requirements.txt .
+COPY scripts/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # copy the elements of the release directory to the docker image
