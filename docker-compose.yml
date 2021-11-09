@@ -29,7 +29,7 @@ services:
       context: .
       dockerfile: scripts/Dockerfile
       args:
-        source: local_pip
+        source: pypi
         #source: local
         #source: pypi
 #    command: "issues=tracker"
