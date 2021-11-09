@@ -18,8 +18,6 @@ services:
       - MYSQL_DATABASE=roundup
       - MYSQL_USER=roundup_user
       - MYSQL_PASSWORD=roundup_pass
-#    ports:
-#      - 3306:3306
     volumes:
       - ./dbData:/config
 
@@ -32,7 +30,6 @@ services:
         source: pypi
         #source: local
         #source: pypi
-#    command: "issues=tracker"
     restart: unless-stopped
     environment:
       - PUID=1000
